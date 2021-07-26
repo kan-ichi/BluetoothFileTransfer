@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1321
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BluetoothFileTransfer", "BluetoothFileTransfer\BluetoothFileTransfer.csproj", "{A67811ED-3B6D-4B81-8309-695DB2886215}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A67811ED-3B6D-4B81-8309-695DB2886215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A67811ED-3B6D-4B81-8309-695DB2886215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A67811ED-3B6D-4B81-8309-695DB2886215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A67811ED-3B6D-4B81-8309-695DB2886215}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61D123A0-1F15-4633-B40D-81F7EE797B8B}
+	EndGlobalSection
+EndGlobal

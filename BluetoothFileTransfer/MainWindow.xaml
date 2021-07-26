@@ -1,0 +1,119 @@
+﻿<Window x:Class="BluetoothFileTransfer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BluetoothFileTransfer"
+        mc:Ignorable="d"
+        Title="Bluetooth File Transfer" Height="400" Width="600"
+        Closing="Window_Closing">
+    
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <GroupBox Grid.Row="0" Grid.Column="0"
+                  Header="My Device Information">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <ComboBox Grid.Column="0"
+                          MinHeight="40" MinWidth="150"
+                          ItemsSource="{Binding MyDeviceAddressNameComboBoxItems}" SelectedValuePath="Key" SelectedIndex="0">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Text="{Binding Value}"/>
+                                <TextBlock Text="{Binding Key}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="0" Grid.Column="2"
+                  Header="Send File (First, Select device)">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0"
+                        MinHeight="40" HorizontalContentAlignment="Left"
+                        Click="SelectSendToDeviceButton_Click">
+                    <Button.Content>
+                        <StackPanel VerticalAlignment="Center" Margin="10, 0">
+                            <TextBlock Name="SendToDeviceName" Text="Click to"/>
+                            <TextBlock Name="SendToDeviceAddress" Text="Select device"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+                <Button Grid.Column="2"
+                        MinHeight="40" MinWidth="150" HorizontalContentAlignment="Left" IsEnabled="False"
+                        Name="SendFileButton" Click="SendFileButton_Click"
+                        AllowDrop="true" PreviewDragOver="SendFileButton_PreviewDragOver" PreviewDrop="SendFileButton_PreviewDrop">
+                    <Button.Content>
+                        <StackPanel VerticalAlignment="Center" Margin="10, 0">
+                            <TextBlock Text="Click and select file"/>
+                            <TextBlock Text="or Drop file to send"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"
+                  Header="Receive File (Input receive file folder below and Click [Start] button)">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Grid.Column="0"
+                         Name="ReceiveFileFolder"/>
+                
+                <Button Grid.Column="2"
+                        Content=" Browse " Click="BrowseReceiveFileFolderButton_Click"/>
+                
+                <Button Grid.Column="4"
+                        Content=" Start "
+                        Name="StartStopReceiveFileButton"
+                        Click="StartStopReceiveFileButton_Click"/>
+                
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"
+                  Header="Log">
+            
+            <TextBox Margin="10"
+                     VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                     IsReadOnly="True" Name="LogMessage"/>
+            
+        </GroupBox>
+
+    </Grid>
+</Window>
