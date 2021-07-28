@@ -89,7 +89,7 @@ namespace BluetoothFileTransfer
             dialog.Title = "Select send file";
             if (dialog.ShowDialog() != CommonFileDialogResult.Ok) return;
 
-            Task.Run(() => this.SendFile(dialog.FileName));
+            Task.Factory.StartNew(() => this.SendFile(dialog.FileName));
         }
 
         private void SendFileButton_PreviewDragOver(object sender, DragEventArgs e)
@@ -117,7 +117,7 @@ namespace BluetoothFileTransfer
             var dropFiles = e.Data.GetData(DataFormats.FileDrop) as string[];
             if (dropFiles == null) return;
 
-            Task.Run(() => this.SendFile(dropFiles[0]));
+            Task.Factory.StartNew(() => this.SendFile(dropFiles[0]));
         }
 
         private void BrowseReceiveFileFolderButton_Click(object sender, RoutedEventArgs e)
@@ -174,7 +174,7 @@ namespace BluetoothFileTransfer
         private void StartReceiveFile()
         {
             this.ObexListener.Start();
-            Task.Run(() => this.ReceiveFile());
+            Task.Factory.StartNew(() => this.ReceiveFile());
             this.StartStopReceiveFileButton.Content = " Stop ";
             this.AppendLogMessage("Receiver started");
         }

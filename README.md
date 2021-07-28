@@ -7,6 +7,6 @@ This software is released under the MIT License, see LICENSE.
 32feet.NET  
 <https://github.com/inthehand/32feet>  
   
-Microsoft-WindowsAPICodePack  
-<https://github.com/contre/Windows-API-Code-Pack-1.1>  
+WindowsAPICodePack  
+<https://github.com/aybe/Windows-API-Code-Pack-1.1>  
   
