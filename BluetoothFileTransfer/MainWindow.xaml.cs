@@ -25,6 +25,9 @@ namespace BluetoothFileTransfer
             InitializeComponent();
             DataContext = this;
 
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            this.Title = $"Bluetooth File Transfer (ver.{ System.Diagnostics.FileVersionInfo.GetVersionInfo(assembly.Location).FileVersion })";
+
             this.ObexListener = new ObexListener(ObexTransport.Bluetooth);
 
             BluetoothRadio[] btRadios = BluetoothRadio.AllRadios;
